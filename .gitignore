@@ -1,0 +1,19 @@
+# Keil build outputs
+**/Objects/
+**/Listings/
+**/MDK-ARM/Objects/
+**/MDK-ARM/Listings/
+
+# Common build and temporary outputs
+build/
+out/
+*.tmp
+
+# Machine-specific tool configuration
+05_Tools/Config/*.local.*
+!05_Tools/Config/*.local.example.*
+
+# Generated project outputs
+06_Output/**
+!06_Output/README.md
+!06_Output/.gitignore
