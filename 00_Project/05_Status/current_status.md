@@ -7,7 +7,7 @@
 - Owner: `Project Owner`
 - Baseline: 仓库种子提交 `59ece4cbcebcaf770073449a740404db0d97e561`
 - Current Branch: `main`
-- Next Action: 整理阶段 0 的硬件事实、外设资源、资料索引、工具版本和未决事项
+- Next Action: 整理阶段 0 的硬件事实、外设资源、资料索引、工具版本和未决事项；当前手边没有开发板，板级试验待设备具备后执行
 
 ## 进入阶段 1 的条件
 
