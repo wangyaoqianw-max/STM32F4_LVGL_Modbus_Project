@@ -10,7 +10,7 @@
 - Baseline Commit: `fd197f695f0742627470cb54068aadc72a238477`
 - Current Role: `Project Owner / Implementation Role`
 - Stage Docs: `00_Project/03_Stages/S01_Application工程初始化与诊断基础/`
-- Next Action: 从 S01 Implementation Plan Task 1 开始施工，先冻结 Build 基线，再整理 Keil 输出、迁入最小五层框架和 Diagnostics 资产。
+- Next Action: 从 S01 Implementation Plan Task 1 开始施工；冻结基线后先独立跑通 `Build → J-Link Flash → Run` 最小工具链，再整理 Keil 输出、迁入最小五层框架和 Diagnostics 资产。
 
 ## Required Reading
 
