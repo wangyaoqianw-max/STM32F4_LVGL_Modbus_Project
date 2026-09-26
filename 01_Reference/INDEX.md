@@ -20,15 +20,15 @@
 
 | 资料 | 版本 / 来源 | 本地路径 | 适用性与状态 |
 |---|---|---|---|
+| STM32F405xx / STM32F407xx 数据手册 | ST DS8626 Rev 12，2026-03，206 页 | `Datasheets/STM32F407_DS8626/STM32F407xx_DS8626_Rev12.pdf` | ST 原始 PDF；已核对封面、页数与 PDF 文件头，适用于 STM32F407VET6。 `official:true`。 [ST PDF](https://www.st.com/resource/en/datasheet/stm32f407ve.pdf) |
+| STM32F4 参考手册 | ST RM0090 Rev 22，2026-05，1741 页 | `Reference_Manuals/STM32F4_RM0090_Rev22.pdf` | ST 原始 PDF；已核对封面、页数与 PDF 文件头，覆盖 STM32F407。 `official:true`。 [ST PDF](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f4xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) |
 | XPT2046 触摸控制器数据手册 | XPT 原始文档，2007-05；由 JLCPCB 产品页提供 | `Datasheets/XPT2046/XPT2046_XPT_Datasheet_2007-05.pdf` | **`official:false`**。器件与当前电阻触摸基线相符；PDF 原件已核验非空，等待人工 MinerU 转换。 [分销商来源](https://jlcpcb.com/partdetail/XPT2046/C19076) · [PDF](https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588881458337894400) |
 
 ## 待获取或待确认
 
 | 资料 | 官方版本 / 来源 | 预期路径 | 状态 |
 |---|---|---|---|
-| STM32F407xx Datasheet | ST DS8626 Rev 12；206 页 | `Datasheets/STM32F407_DS8626/STM32F407xx_DS8626_Rev12.pdf` | 官方直链下载返回 HTTP 567，未落盘；网络恢复后重试。 [ST PDF](https://www.st.com/resource/en/datasheet/stm32f407ve.pdf) |
-| STM32F405/407 Reference Manual | ST RM0090 V22.0，2026-05；1741 页 | `Reference_Manuals/STM32F4_RM0090_Rev22.pdf` | 官方直链下载返回 HTTP 567，未落盘；网络恢复后重试。 [ST 文档页](https://www.st.com/en/microcontrollers-microprocessors/stm32f407-417/documentation.html) · [ST PDF](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f4xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) |
-| ILI9341 LCD 控制器资料 | 已批准候选：ILITEK 原始文档 V1.02 Preliminary，233 页；eeworld 镜像 | `Datasheets/ILI9341/ILI9341_DS_V1.02.pdf` | eeworld 页面要求浏览器脚本校验，自动获取只返回校验页；没有保存 PDF。该文档声明未经许可不得再分发，故不纳入本次提交。 [候选页面](https://datasheet.eeworld.com.cn/view/57286407.html) |
+| ILI9341 LCD 控制器资料 | ILITEK 原始文档 V1.02 Preliminary，233 页；eeworld 镜像 | 本机 `Datasheets/ILI9341/ILI9341.pdf`（仅本地） | 已核对封面与页数。第 2 页声明未经书面许可不得分发或复制；文件保留在本机但不纳入 Git，也不安排仓库内转换。 [候选页面](https://datasheet.eeworld.com.cn/view/57286407.html) |
 | W25Q128 数据手册 | Winbond 官方资料页列有 W25Q128JV 与 W25Q128JV_DTR | `Datasheets/W25Q128/` | 当前工程只确认 W25Q128 容量，具体后缀/器件仍待确认；暂不选型下载。 [Winbond 资料页](https://www.winbond.com/hq/support/documentation/?__locale=en&category=%2F.categories%2Fresources%2Fdatasheet%2F&family=%2Fproduct%2Fcode-storage-flash-memory%2Fserial-nor-flash%2Findex.html&line=%2Fproduct%2Fcode-storage-flash-memory%2Findex.html&pno=W25Q128JV) |
 
 ## 未复制的源工程资料

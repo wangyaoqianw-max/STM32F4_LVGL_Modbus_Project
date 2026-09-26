@@ -17,3 +17,6 @@ out/
 06_Output/**
 !06_Output/README.md
 !06_Output/.gitignore
+
+# ILITEK ILI9341 datasheet prohibits redistribution without written permission
+/01_Reference/Datasheets/ILI9341/ILI9341.pdf
