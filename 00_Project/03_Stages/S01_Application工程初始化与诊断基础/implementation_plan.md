@@ -70,7 +70,7 @@
 - Output:
   - 一条独立于 Diagnostics 的最小 `Build → Flash → Run` 工具链基线。
 
-### Task 4: 落地 Keil 工程与构建输出规范
+### Task 3: 落地 Keil 工程与构建输出规范
 
 - Inputs:
   - `03_Firmware/00_Doc/Keil工程与构建输出规范.md`
@@ -96,7 +96,7 @@
 - Output:
   - 稳定 Keil 构建基线。
 
-### Task 3: 建立五层架构最小框架
+### Task 4: 建立五层架构最小框架
 
 - Inputs:
   - Library `original/基于五层架构/`
