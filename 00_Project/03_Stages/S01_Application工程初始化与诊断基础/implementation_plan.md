@@ -44,7 +44,33 @@
 - Output:
   - S01 verification 中的 Baseline 记录。
 
-### Task 2: 落地 Keil 工程与构建输出规范
+### Task 2: 跑通最基础 Build / Flash / Run 工具链
+
+- Inputs:
+  - 当前未引入五层框架和 Diagnostics 的 CubeMX/Keil Application 基线
+  - Keil MDK
+  - J-Link / SEGGER 工具链
+- Files:
+  - 原则上不修改业务源码；若发现工程配置阻塞，只修改能够被证据直接支持的工程配置
+  - `04_Test/Reports/Stages/S01/verification.md`
+- Steps:
+  1. 对当前纯基线执行一次 Clean Rebuild，记录实际 Target、Keil/Compiler 版本、Error/Warning。
+  2. 确认生成 AXF/HEX 等当前可用烧录映像及其实际路径。
+  3. 使用项目既有 J-Link 链路连接 STM32F407VET6，核对器件识别、SWD 和目标电压等基本连接状态。
+  4. 烧录当前基础 Application，不在此任务引入 Diagnostics 或业务代码。
+  5. Reset/Run MCU，并通过 J-Link/GDB 的最小运行证据确认程序已经从 Reset_Handler 进入正常 Application/FreeRTOS 运行路径；不要求验证具体外设功能。
+  6. 若 Build 或 Flash 失败，先区分源码、Keil 工程、J-Link 连接、下载算法和硬件供电问题，不通过增加业务代码掩盖工具链问题。
+  7. 将命令、版本、关键输出和结论写入 S01 Verification。
+- Verification:
+  - Clean Rebuild：PASS；
+  - J-Link connect：PASS；
+  - Flash：PASS；
+  - Reset/Run：PASS；
+  - 若缺少实际板卡，则 Flash/Run 明确记为 PENDING，不能以 Build PASS 替代。
+- Output:
+  - 一条独立于 Diagnostics 的最小 `Build → Flash → Run` 工具链基线。
+
+### Task 4: 落地 Keil 工程与构建输出规范
 
 - Inputs:
   - `03_Firmware/00_Doc/Keil工程与构建输出规范.md`
@@ -96,7 +122,7 @@
 - Output:
   - 五层架构基础骨架。
 
-### Task 4: 接入 SEGGER RTT
+### Task 5: 接入 SEGGER RTT
 
 - Inputs:
   - Library `third_party/SEGGER_RTT/v7.92/`
@@ -114,7 +140,7 @@
 - Output:
   - 独立 RTT transport 可用。
 
-### Task 5: 接入 CmBacktrace 与 Fault 诊断链
+### Task 6: 接入 CmBacktrace 与 Fault 诊断链
 
 - Inputs:
   - Library `third_party/CmBacktrace/v1.5.0/`
@@ -142,7 +168,7 @@
 - Output:
   - 最小依赖 Fault Diagnostics。
 
-### Task 6: 接入 EasyLogger + Service Log
+### Task 7: 接入 EasyLogger + Service Log
 
 - Inputs:
   - Library `third_party/EasyLogger/v2.2.99/`
@@ -169,7 +195,7 @@
 - Output:
   - 正常运行日志链完成。
 
-### Task 7: CubeMX Regenerate 回归
+### Task 8: CubeMX Regenerate 回归
 
 - Inputs:
   - 集成完成后的可构建工程
@@ -195,10 +221,10 @@
 - Output:
   - CubeMX 再生成稳定性结论。
 
-### Task 8: S01 集成验证
+### Task 9: S01 集成验证
 
 - Inputs:
-  - 完成 Task 1~7 的工程
+  - 完成 Task 1~8 的工程
 - Files:
   - `04_Test/Reports/Stages/S01/verification.md`
 - Steps:
@@ -217,7 +243,7 @@
 - Output:
   - S01 verification evidence。
 
-### Task 9: 文档、交接和状态收尾
+### Task 10: 文档、交接和状态收尾
 
 - Inputs:
   - 实际代码改动
