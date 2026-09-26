@@ -26,6 +26,17 @@
 - Output paths:
 - Git status:
 
+## Basic Build / Flash / Run toolchain
+
+- Clean Rebuild:
+- Build output:
+- J-Link connect:
+- Target identification:
+- Flash:
+- Reset / Run:
+- Evidence:
+- Result: `NOT_RUN`
+
 ## Architecture / asset integration
 
 - platform_types.h baseline match:
