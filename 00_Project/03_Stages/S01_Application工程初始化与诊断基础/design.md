@@ -94,14 +94,15 @@ Library 当前该文件 Blob：
 ### In scope
 
 1. Keil 工程与构建输出规范落地。
-2. 建立 Application 五层架构目录与基础公共能力。
-3. 选择性复用 Embedded Engineering Library 资产。
-4. 接入 SEGGER RTT。
-5. 接入 CmBacktrace 与 Cortex-M Fault 诊断链。
-6. 接入 EasyLogger、Service Log 和 Platform Log。
-7. 建立 CubeMX 再生成后的检查/恢复规则。
-8. 执行 Clean Rebuild、RTT、Fault 等与本阶段相称的验证。
-9. 更新 S01 状态、交接和验证证据。
+2. 跑通最基础工具链闭环：Clean Rebuild → 生成固件 → J-Link 烧录 → MCU 启动运行。
+3. 建立 Application 五层架构目录与基础公共能力。
+4. 选择性复用 Embedded Engineering Library 资产。
+5. 接入 SEGGER RTT。
+6. 接入 CmBacktrace 与 Cortex-M Fault 诊断链。
+7. 接入 EasyLogger、Service Log 和 Platform Log。
+8. 建立 CubeMX 再生成后的检查/恢复规则。
+9. 执行 Clean Rebuild、基础烧录运行、RTT、Fault 等与本阶段相称的验证。
+10. 更新 S01 状态、交接和验证证据。
 
 ### Out of scope
 
@@ -265,6 +266,14 @@ S01 必须核对：
 - 若必须修改 `platform_types.h` 才能继续，本阶段进入设计复审，不允许直接修改。
 
 ## Acceptance criteria
+
+### Basic toolchain
+
+- 当前纯 CubeMX Application 基线可以完成 Clean Rebuild。
+- 构建后能够得到可用于烧录的固件映像。
+- J-Link 能识别 STM32F407VET6 并完成烧录。
+- 烧录后 MCU 能正常启动运行；该验证只证明基础 Build/Flash/Run 链路，不代替任何外设功能验收。
+- 实际构建命令、烧录工具/版本、结果和失败信息写入 S01 Verification。
 
 ### Code / build
 
