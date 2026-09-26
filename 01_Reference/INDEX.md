@@ -23,6 +23,9 @@
 | STM32F405xx / STM32F407xx 数据手册 | ST DS8626 Rev 12，2026-03，206 页 | `Datasheets/STM32F407_DS8626/STM32F407xx_DS8626_Rev12.pdf` | ST 原始 PDF；已核对封面、页数与 PDF 文件头，适用于 STM32F407VET6。 `official:true`。 [ST PDF](https://www.st.com/resource/en/datasheet/stm32f407ve.pdf) |
 | STM32F4 参考手册 | ST RM0090 Rev 22，2026-05，1741 页 | `Reference_Manuals/STM32F4_RM0090_Rev22.pdf` | ST 原始 PDF；已核对封面、页数与 PDF 文件头，覆盖 STM32F407。 `official:true`。 [ST PDF](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f4xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) |
 | XPT2046 触摸控制器数据手册 | XPT 原始文档，2007-05；由 JLCPCB 产品页提供 | `Datasheets/XPT2046/XPT2046_XPT_Datasheet_2007-05.pdf` | **`official:false`**。器件与当前电阻触摸基线相符；PDF 原件已核验非空，等待人工 MinerU 转换。 [分销商来源](https://jlcpcb.com/partdetail/XPT2046/C19076) · [PDF](https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588881458337894400) |
+| MAX485 收发器数据手册 | Analog Devices，MAX1487–MAX491，Rev 11，2017-10；17 页 | 本机 `Datasheets/MAX485_ADI/MAX1487-MAX491.pdf`（仅本地） | `official:true`。图纸 U6 标注 MAX485，该组合手册覆盖 MAX485。再分发许可未明确，PDF 已下载到本机但由 `.gitignore` 排除，不推送。 [ADI 产品页](https://www.analog.com/en/products/max485.html) · [官方 PDF](https://www.analog.com/media/en/technical-documentation/data-sheets/MAX1487-MAX491.pdf) |
+| Modbus Serial Line Protocol and Implementation Guide | Modbus Organization，V1.02，44 页 | 本机 `Protocols/Modbus_Serial_Line_V1.02.pdf`（仅本地） | RTU/ASCII 串行链路与物理层参考。官方法律页声明资料版权归组织所有，未找到再分发许可；PDF 仅本机保留、不推送。 [官方规范目录](https://www.modbus.org/modbus-specifications) · [官方 PDF](https://www.modbus.org/file/secure/modbusoverserial.pdf) |
+| Modbus Application Protocol Specification | Modbus Organization，V1.1b3，50 页 | 本机 `Protocols/Modbus_Application_Protocol_V1.1b3.pdf`（仅本地） | 功能码、数据模型与异常响应参考。再分发许可未明确；PDF 仅本机保留、不推送。 [官方规范目录](https://www.modbus.org/modbus-specifications) · [官方 PDF](https://www.modbus.org/file/secure/modbusprotocolspecification.pdf) |
 
 ## 待获取或待确认
 
@@ -35,3 +38,4 @@
 
 - `P169H002-CTP / ST7789T3` 屏幕资料对应 240×280 SPI 电容触摸模组；当前工程基线是 ILI9341 并口/FMC 与 XPT2046 电阻触摸，故不作为本项目器件资料复制。
 - STM32F411 芯片手册和板级设计资料属于源工程器件，不替代 STM32F407 手册或本项目硬件事实。
+- TI《The RS-485 Design Guide》SLLA272D Rev D 仅提供来源链接：[TI PDF](https://www.ti.com/lit/an/slla272d/slla272d.pdf)。其使用条款将许可限定为开发含 TI 产品的应用并禁止其他复制/展示；图中收发器为 ADI MAX485，因此未保留 PDF。

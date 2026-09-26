@@ -20,3 +20,8 @@ out/
 
 # ILITEK ILI9341 datasheet prohibits redistribution without written permission
 /01_Reference/Datasheets/ILI9341/ILI9341.pdf
+
+# Locally retained references with unclear redistribution terms
+/01_Reference/Datasheets/MAX485_ADI/MAX1487-MAX491.pdf
+/01_Reference/Protocols/Modbus_Serial_Line_V1.02.pdf
+/01_Reference/Protocols/Modbus_Application_Protocol_V1.1b3.pdf
