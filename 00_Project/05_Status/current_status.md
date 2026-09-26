@@ -8,7 +8,7 @@
 - Baseline: `fd197f695f0742627470cb54068aadc72a238477`
 - Current Branch: `main`
 - Stage Docs: `00_Project/03_Stages/S01_Application工程初始化与诊断基础/`
-- Next Action: 按 S01 `implementation_plan.md` 执行 Keil 输出规范、五层架构基础框架复用、RTT + CmBacktrace + EasyLogger 诊断移植和 CubeMX Regenerate 回归。
+- Next Action: 按 S01 `implementation_plan.md` 先跑通纯基线的 `Build → J-Link Flash → Run` 最小工具链，再执行 Keil 输出规范、五层架构基础框架复用、RTT + CmBacktrace + EasyLogger 诊断移植和 CubeMX Regenerate 回归。
 
 ## S00 收尾结论
 
