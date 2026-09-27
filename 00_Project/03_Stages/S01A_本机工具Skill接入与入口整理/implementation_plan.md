@@ -162,8 +162,8 @@
 - [x] **Step 2: Run repository whitespace check** with `git diff --check` and confirm the working tree contains no unrelated user changes.
 - [x] **Step 3: Commit the completed stage** with message `feat(tools): add S01A skill tooling entrypoints`; record the resulting implementation commit ID.
 - [x] **Step 4: Record the implementation commit ID** in S01A `handoff.md` and `PROJECT_CONTEXT.md`.
-- [ ] **Step 5: Commit the handoff metadata** with message `docs(project): record S01A implementation handoff`.
-- [ ] **Step 6: Push both commits** to the current branch's configured upstream; confirm the pushed commits are the new branch tips without printing credential-bearing remote data.
+- [x] **Step 5: Commit the handoff metadata** with message `docs(project): record S01A implementation handoff`.
+- [x] **Step 6: Push both commits** to the current branch's configured upstream; confirm the pushed commits are the new branch tips without printing credential-bearing remote data.
 
 **Verification:** `git status --short --branch` reports the intended branch synchronized with its upstream after push; the recorded implementation commit ID resolves in local Git history.
 
