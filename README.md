@@ -6,7 +6,7 @@
 - MCU：STM32F407VET6 新开发板。
 - 项目架构、硬件事实、复用边界和分阶段路线以[工程设计决策](00_Project/04_Decisions/STM32F407VET6_工业控制从机综合项目_设计决策.md)为当前基线。
 - S00 工程准备和 S01 Application 工程初始化与诊断基础已经完成。
-- S01A 本机工具 Skill 接入与入口整理已经关闭；S02 板级基础能力 / Platform Bring-up 正在按已批准的 Design / Implementation Plan 施工。
+- S01A 本机工具 Skill 接入与入口整理和 S02 板级基础能力 / Platform Bring-up 已关闭；S02 Review 为 PASS，下一工作项是 S03 W25Q128 与中文字库基础设计。
 
 ## 快速恢复上下文
 
@@ -16,7 +16,7 @@
 2. `PROJECT_CONTEXT.md`：已完成阶段、当前状态、下一步和必读资料。
 3. `00_Project/WORKFLOW.md`：阶段和角色约定。
 4. `00_Project/05_Status/current_status.md`：活动状态真值。
-5. 当前 S02 的 `design.md` / `implementation_plan.md`；随后读取最近关闭阶段 S01A 的 `handoff.md` / `review.md` 与验证报告，以及 S01 `handoff.md` / `review.md`。
+5. 当前活动阶段的 `design.md` / `implementation_plan.md`；S03 尚在 `DRAFT`，设计启动时参考最近关闭阶段 S02 的 `handoff.md` / `review.md` 与验证报告，再读取 S01A 和 S01 的交接、Review 与验证记录。
 
 ## 目录职责
 

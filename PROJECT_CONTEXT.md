@@ -4,17 +4,19 @@
 
 ## Context Metadata
 
-- Last Closed Stage: `S01A 本机工具 Skill 接入与入口整理`
+- Last Closed Stage: `S02 板级基础能力 / Platform Bring-up`
 - Last Closed Stage Status: `CLOSED`
 - Branch: `main`
 - S01 Implementation Commit: `eabc22ed58e770a80f41dcd94ce427710a658c44`
 - S01A Implementation Commit: `7a942b57d75e2c1c2c5c0bd2238141b12898cf0a`
-- Active Stage: `S02 板级基础能力 / Platform Bring-up`
-- Active Stage Status: `IN_PROGRESS`
-- Current Role: `Verification / Independent Review`
+- Active Stage: `S03 W25Q128 与中文字库基础`
+- Active Stage Status: `DRAFT`
+- Current Role: `Design`
 - S02 Design Baseline Commit: `0ffe747eeb0a1e7e2c6a088e2b402bbc57965f44`
-- Next Work Item: `S02 独立 Review 与阶段关闭`
-- Next Action: 计划内代码、Clean Rebuild 和 GPIO / I2C ACK / USART1 Smoke 已完成；测试入口已清除，等待 Review PASS 后关闭 S02 并切换到 S03。
+- S02 Implementation Commit: `87762406c602cbe4b896203c833e640b1371ff0c`
+- S02 Review Result: `PASS`
+- Next Work Item: `S03 Design / Implementation Plan`
+- Next Action: S02 已关闭；先完成 S03 设计和实施计划并按工作流批准，再开始 S03 施工。
 
 ## Required Reading
 
@@ -95,7 +97,7 @@ S01 Code Verification 与阶段要求内的工具链/板级验证均为 `PASS`�
 
 ## S02 已冻结设计边界
 
-S02 Design / Implementation Plan 已批准；Platform / Impl 接入、F407 Binding 与计划内验证已完成，当前等待 Review。
+S02 Design / Implementation Plan 已批准；Platform / Impl 接入、F407 Binding 与计划内验证已完成，独立 Review 为 `PASS`，阶段已关闭。
 
 目标链路：
 
@@ -139,10 +141,10 @@ S02 不建立完整 Driver / Service 初始化链，也不提前引入 W25Q128�
 
 ## 下一步
 
-S02 代码和计划内验证已完成，具体证据见：
+S02 已通过 Review 并关闭，具体证据见：
 
 - `04_Test/Reports/Stages/S02/verification.md`
 - `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/handoff.md`
-- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/review.md`（Review 后建立）
+- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/review.md`
 
-当前待办是独立 Review。Review PASS 后关闭 S02，下一工作项切换为 `S03 W25Q128 与中文字库基础`；完整设备初始化和 Service 仍按后续阶段设计。
+当前活动阶段为 `S03 W25Q128 与中文字库基础`（`DRAFT`）。下一步完成 S03 Design / Implementation Plan 并按工作流批准；完整设备初始化和 Service 仍按后续阶段设计。

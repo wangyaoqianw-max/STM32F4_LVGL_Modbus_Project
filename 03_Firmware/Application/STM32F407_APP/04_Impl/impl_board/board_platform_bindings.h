@@ -60,6 +60,7 @@ platform_error_t board_platform_gpio_bind(
  * @param[in,out] bus : 使用 PLATFORM_SPI_BUS_INITIALIZER 初始化的对象
  * @return platform_error_t : 绑定结果
  * @note 本函数只绑定 hspi1，不执行 HAL 初始化或 SPI 传输。
+ * @note 调用 platform_spi_bus_lifecycle_init() 前需执行 MX_SPI1_Init()。
  * @note 对象和内部静态上下文在运行期间保持有效。
  */
 platform_error_t board_platform_spi1_bind(platform_spi_bus_t *bus);
