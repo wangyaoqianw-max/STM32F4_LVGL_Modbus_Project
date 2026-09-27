@@ -81,6 +81,8 @@ Listing Directory = .\Listings\
 <ListingPath>Listings\</ListingPath>
 ```
 
+若工程要求保留 C 源 `.lst`，还须在 `Options for Target → Listing` 启用 `C Compiler Listing`；ARM Compiler 5 的 `.uvprojx` 对应 `<RvctClst>1</RvctClst>`。`ListingPath` 只负责路由，不会单独启用 C listing。本项目实测 `RvctClst=1` 后 Clean Rebuild 生成 C/汇编 `.lst` 到 `Listings/`。参见 [Keil µVision Listing](https://www.keil.com/support/man/docs/uv4cl/uv4cl_dg_listing.htm)。
+
 一个工程存在多个 Target 时，应逐个核对。不得只创建目录而保留 Target 指向其他输出位置。
 
 初始化或修改构建配置后至少验证：

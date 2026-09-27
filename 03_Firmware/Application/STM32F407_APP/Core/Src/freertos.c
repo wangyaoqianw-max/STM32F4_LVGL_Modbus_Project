@@ -25,6 +25,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "cmbacktrace_port.h"
+#include "diagnostics_fault.h"
+#include "service_log.h"
 
 /* USER CODE END Includes */
 
@@ -71,6 +74,14 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
+  platform_error_t service_log_init_result = service_log_init();
+  cmbacktrace_port_init();
+  diagnostics_fault_init();
+  if (service_log_init_result != PLATFORM_ERR_OK)
+  {
+    Error_Handler();
+  }
+
 
   /* USER CODE END Init */
 
@@ -114,6 +125,7 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+
   /* Infinite loop */
   for(;;)
   {

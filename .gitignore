@@ -13,6 +13,10 @@ out/
 05_Tools/Config/*.local.*
 !05_Tools/Config/*.local.example.*
 
+# Local engineering tool state
+.codegraph/
+.embeddedskills/
+
 # Generated project outputs
 06_Output/**
 !06_Output/README.md
