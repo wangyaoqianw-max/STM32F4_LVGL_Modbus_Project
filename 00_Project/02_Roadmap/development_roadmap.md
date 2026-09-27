@@ -42,7 +42,7 @@ S12 系统集成 / Reliability / Delivery
 | S00 | 工程准备与硬件事实整理 | 原理图、Pinout、外设资源、DMA/IRQ、工具链和资料基线 |
 | S01 | Application 工程初始化与诊断基础 | CubeMX/Keil APP 母工程、FreeRTOS 基础、RTT + EasyLogger、cmBacktrace、Build/Flash/Log 基础链路 |
 | S01A | 本机工具 Skill 接入与入口整理 | 项目级配置示例、首次初始化入口和 Keil/J-Link/GDB Skill 调用速查；不复制 Skills 或执行板级操作 |
-| S02 | 板级基础能力 / Platform Bring-up | GPIO、SPI、软件 I2C、UART、FMC、基础 IRQ/DMA 等底层能力验证 |
+| S02 | 板级基础能力 / Platform Bring-up | 迁入可复用 MCU Platform / STM32F4 Impl 基础资产，完成 F407 Board/HAL Binding，并以 GPIO、软件 I2C、UART 做最小关键链路验证 |
 | S03 | W25Q128 与中文字库基础 | W25Q128 基础驱动、商家布局确认、字库区域保护、字体读取基础 |
 | S04 | FreeRTOS Runtime / UART DMA 通信基础 | Task/IPC/资源所有权，以及 UART + DMA + IDLE + RingBuffer |
 | S05 | Sensor Acquisition / Application Data Model | DHT20、采集服务、统一样本/状态模型、Application Snapshot |
@@ -104,18 +104,29 @@ S12 系统集成 / Reliability / Delivery
 
 ### S02 板级基础能力 / Platform Bring-up
 
-开始验证 F407VET6 新开发板的基础硬件通路：
+本阶段已冻结为 MCU Platform / STM32F4 Impl 复用与 F407 底层 Binding 阶段，而不是一次性完成全部外设 Driver。
+
+核心链路：
 
 ```text
-GPIO
-SPI
-软件 I2C
-UART
-FMC
-基础 IRQ / DMA
+CubeMX / HAL Resource
+        ↓
+STM32F407 Impl Backend
+        ↓
+Board / HAL Binding
+        ↓
+Platform API
 ```
 
-这一阶段优先确认 MCU 到外设的基础能力成立，不要求一次完成所有上层 Service。
+当前复用范围包括 GPIO、Delay、Software I2C、SPI、UART、IRQ、Reset；Watchdog 暂缓。
+
+最小板级验证聚焦：
+
+- GPIO Smoke；
+- PB6/PB7 Software I2C 对板载 AT24C02 地址 ACK Probe；
+- 选择一路 UART 完成 Blocking TX/RX Smoke。
+
+SPI 的真实设备通信在 S03 使用 W25Q128 JEDEC/Read 验证；UART DMA + IDLE + RingBuffer 进入 S04；FMC/LCD 实机时序进入 S06。当前不新增通用 `platform_dma` 或 `platform_fmc`，也不提前建立完整 Driver / Service 初始化链。
 
 ### S03 W25Q128 与中文字库基础
 
