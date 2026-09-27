@@ -1,0 +1,12 @@
+{
+  "keil": {
+    "project": "03_Firmware/Application/STM32F407_APP/MDK-ARM/STM32F407_APP.uvprojx",
+    "target": "STM32F407_APP",
+    "log_dir": "06_Output/ToolSkills/BuildLogs"
+  },
+  "jlink": {
+    "device": "STM32F407VE",
+    "interface": "SWD",
+    "speed": "1000"
+  }
+}

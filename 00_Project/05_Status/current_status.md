@@ -2,12 +2,14 @@
 
 ## 当前状态
 
-- Last Closed Stage: `S01 Application 工程初始化与诊断基础`
-- Status: `CLOSED`
+- Last Closed Stage: `S01A 本机工具 Skill 接入与入口整理`
+- Last Closed Stage Status: `CLOSED`
 - Owner: `Project Owner`
 - Branch: `main`
 - S01 Implementation Commit: `eabc22ed58e770a80f41dcd94ce427710a658c44`
+- S01A Implementation Commit: `PENDING — record after stage commit`
 - S01 Stage Docs: `00_Project/03_Stages/S01_Application工程初始化与诊断基础/`
+- S01A Stage Docs: `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/`
 - Next Work Item: `S02 板级基础能力 / Platform Bring-up`
 - Next Action: 先讨论并冻结 S02 的 Design / Implementation Plan，再开始 GPIO、SPI、软件 I2C、UART、FMC 与基础 IRQ/DMA 的板级 Bring-up。
 
@@ -63,4 +65,4 @@ IRQ / DMA
 
 哪些能力在 S02 实际 Bring-up，哪些延后到对应设备阶段。
 
-本文件是活动状态真值。开始 S02 设计后，再将 Active Work Item 和状态切换到 S02。
+本文件是活动状态真值。开始 S02 设计时，再将 Active Work Item 和状态切换到 S02。

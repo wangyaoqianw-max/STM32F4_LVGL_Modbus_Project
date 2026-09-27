@@ -2,30 +2,32 @@
 
 ## 使用边界
 
-常见嵌入式操作优先使用本机已安装的 Embedded Skills；本目录只放本工程专用的操作说明、配置示例和确有必要的脚本，不复制 Skill 包自带的工具脚本，也不为尚未稳定的工具预建抽象层。
+常见嵌入式操作优先使用本机已安装的 Embedded Skills。本目录保存本工程共享配置示例、首次初始化入口和调用速查；不复制 Skill 包、工具程序或 Skill 通用脚本。只有出现已确认且重复的 Skill 缺口时，才为该具体操作增加项目脚本。
 
-当前设计决策选择沿用来源工程的 Keil MDK、STM32CubeMX/HAL 和 FreeRTOS。Keil 工程文件、Target、具体版本及本机工具路径仍需在阶段 0 核对；未确认前不创建 Skill 工程配置，也不把 Skill 示例参数写成本工程事实。
+## 项目配置
 
-## Skill 对应关系
+- 配置示例：`05_Tools/Config/embeddedskills.config.example.json`。
+- 首次初始化：`powershell -NoProfile -File .\05_Tools\Scripts\Initialize-EmbeddedSkillsConfig.ps1`。
+- 脚本只在 `.embeddedskills/config.json` 不存在时从示例创建；目标文件已存在时提示并保留，不覆盖、不合并。`.embeddedskills/` 已由 Git 忽略。
+- 示例中的工程路径相对仓库根目录。Keil/J-Link 可执行文件、GDB 与 J-Link GDB Server 路径及探针序列号由用户级 Skill 配置管理，不写入项目示例。
+- `STM32F407VE / SWD / 1000` 是当前 J-Link Skill 的项目工具参数，不单独证明本次连接设备或实物板卡身份。
 
-| 工作 | 优先使用的 Skill | 使用条件 |
+## 常用入口
+
+| 工作 | Skill 调用 | 输入 / 说明 |
 |---|---|---|
-| 源码理解与调用关系分析 | `embedded-code-reader` | 工程源码进入仓库后，用于只读分析模块、初始化和调用链。 |
-| 固件实现、修改或移植 | `embedded-code-development` | 需求和阶段设计已确认，且当前阶段计划允许修改代码后使用。 |
-| Keil 工程扫描、Target 枚举和构建 | `keil` | 发现并确认本工程 Keil 工程文件及 Target 后使用；构建须符合仓库操作要求。 |
-| 烧录、在线调试、RTT/SWO | `jlink` | 开发板、探针、芯片型号和接口参数确认且设备可用后使用。 |
-| UART/USB 串口监视与日志 | `serial` | 开发板或串口设备已连接，串口参数已确认后使用；发送数据必须有明确任务要求。 |
-| 多阶段构建/烧录/调试/观测编排 | `workflow` | 用户明确要求执行整条工作流或自动诊断时使用；单项操作直接调用对应 Skill。 |
+| 扫描 Keil 工程、枚举 Target | `/keil scan`、`/keil targets` | 工程文件与 Target 已在项目配置示例中登记。 |
+| 构建 Keil 工程 | `/keil build` | 返回最近构建产物；烧录前由 `keil` Skill 确认构建成功。 |
+| 探测 J-Link | `/jlink info` | 需要本次可用的探针、目标和连接参数。 |
+| 烧录固件 | `/jlink flash` | 使用 Keil 返回的固件产物；只有当前阶段和用户要求允许时执行。 |
+| 读取 RTT | `/jlink rtt` | 由 J-Link Probe 占用；同一 Probe 不与其他 RTT/GDB/J-Link 会话并行使用。 |
+| GDB 源码级调试 | `/jlink gdb backtrace`、`/jlink gdb locals` | 使用 Keil 生成的 AXF（ELF）；GDB 与 GDB Server 路径来自用户级 Skill 配置。 |
+| 明确要求多步骤编排 | `/workflow` | 仅在用户要求整条 Build/Flash/Debug/Observe 流程或自动诊断时使用；单项操作直接调用对应 Skill。 |
 
-`gcc`、`eide`、`openocd`、`probe-rs` 是可选后端。只有本工程后续明确选用并确认配置后才使用，不与当前 Keil/J-Link 路线并行维护。CAN Skill 仅在需求加入 CAN 接口后再纳入。
+源码分析与固件修改分别使用 `embedded-code-reader` 和 `embedded-code-development`；串口监视使用 `serial`。`gcc`、`eide`、`openocd`、`probe-rs` 是可选后端，只有阶段明确选择后才配置；CAN Skill 仅在需求加入 CAN 后使用。
 
-## 当前无开发板时
+## 操作与产物边界
 
-目前手边没有开发板，板级试验暂缓。可以继续整理仓库资料、核对工程文件和本机工具版本；不执行目标连接、烧录、复位、在线调试、串口联调，也不把静态检查或工具命令成功记作硬件验证。取得开发板后再按阶段计划补做相应验证。
+执行目标连接、烧录、复位、在线调试或串口操作前，需确认本次目标设备、探针、接口参数和阶段授权。S01 的历史验证不代表当前设备连接状态已确认；静态检查或工具命令成功也不等于真实硬件验证。
 
-## 配置与结果
-
-- 暂不创建 `.embeddedskills/config.json`。阶段 0 确认工程文件、构建 Target、探针和串口参数后，再决定哪些项目参数可共享、哪些机器信息只能保留在本机。
-- Skill 运行时可能更新 `.embeddedskills/config.json` 或 `.embeddedskills/state.json`。使用前核对目标路径和参数，运行后检查 Git 变更；不得提交本机工具安装路径或未确认的硬件参数。
-- 构建、调试和测试生成物及日志按仓库规则写入 `06_Output` 或对应测试输出目录；正式验证结论写入 `04_Test/Reports`。配置 Skill 的输出目录时覆盖其默认临时目录，避免生成物散落在仓库其他位置。
-- 新增本工程专用工具前，先说明实际用途、入口、输入输出、机器依赖、共享硬件资源和验证方式。本机路径只放在本地配置；如需配置文件，提供可提交示例并忽略本机覆盖文件。
+构建、调试和测试生成物及日志写入 `06_Output` 或对应测试输出目录；正式验证结论写入 `04_Test/Reports`。新增项目脚本前需明确其用途、输入输出、机器依赖、共享硬件资源和验证方式。

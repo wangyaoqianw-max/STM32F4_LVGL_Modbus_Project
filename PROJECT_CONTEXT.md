@@ -4,10 +4,11 @@
 
 ## Context Metadata
 
-- Last Closed Stage: `S01 Application 工程初始化与诊断基础`
-- Status: `CLOSED`
+- Last Closed Stage: `S01A 本机工具 Skill 接入与入口整理`
+- Last Closed Stage Status: `CLOSED`
 - Branch: `main`
 - S01 Implementation Commit: `eabc22ed58e770a80f41dcd94ce427710a658c44`
+- S01A Implementation Commit: `PENDING — record after stage commit`
 - Current Role: `Project Owner / Design`
 - Next Work Item: `S02 板级基础能力 / Platform Bring-up`
 - Next Action: 讨论并冻结 S02 Design / Implementation Plan；在设计完成前不直接扩大功能施工。
@@ -27,6 +28,12 @@
 11. `03_Firmware/00_Doc/Keil工程与构建输出规范.md`
 12. `03_Firmware/00_Doc/RTT_CmBacktrace_AI移植指南.md`
 13. `03_Firmware/00_Doc/嵌入式C代码规范.md`
+14. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/design.md`
+15. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/implementation_plan.md`
+16. `05_Tools/README.md`
+17. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/handoff.md`
+18. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/review.md`
+19. `04_Test/Reports/Stages/S01A/verification.md`
 
 外部复用资产：
 
@@ -97,7 +104,7 @@ S01 Code Verification 与阶段要求内的工具链/板级验证均为 `PASS`�
 
 ## 下一步
 
-S02 尚未创建正式阶段文档。下一轮应先针对 Board Bring-up 重新审查：
+S01A 本机工具 Skill 接入与入口整理已经关闭。S02 尚未创建正式阶段文档；下一轮应先针对 Board Bring-up 重新审查：
 
 - 哪些 Platform/Impl 资产从 Embedded Engineering Library 直接复用；
 - GPIO / SPI / Software I2C / UART / FMC / IRQ / DMA 中哪些需要在 S02 实机验证；

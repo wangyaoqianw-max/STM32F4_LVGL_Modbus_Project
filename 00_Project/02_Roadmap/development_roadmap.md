@@ -12,6 +12,8 @@ S00 工程准备与硬件事实整理
         ↓
 S01 Application 工程初始化与诊断基础
         ↓
+S01A 本机工具 Skill 接入与入口整理
+        ↓
 S02 板级基础能力 / Platform Bring-up
         ↓
 S03 W25Q128 与中文字库基础
@@ -39,6 +41,7 @@ S12 系统集成 / Reliability / Delivery
 | --- | --- | --- |
 | S00 | 工程准备与硬件事实整理 | 原理图、Pinout、外设资源、DMA/IRQ、工具链和资料基线 |
 | S01 | Application 工程初始化与诊断基础 | CubeMX/Keil APP 母工程、FreeRTOS 基础、RTT + EasyLogger、cmBacktrace、Build/Flash/Log 基础链路 |
+| S01A | 本机工具 Skill 接入与入口整理 | 项目级配置示例、首次初始化入口和 Keil/J-Link/GDB Skill 调用速查；不复制 Skills 或执行板级操作 |
 | S02 | 板级基础能力 / Platform Bring-up | GPIO、SPI、软件 I2C、UART、FMC、基础 IRQ/DMA 等底层能力验证 |
 | S03 | W25Q128 与中文字库基础 | W25Q128 基础驱动、商家布局确认、字库区域保护、字体读取基础 |
 | S04 | FreeRTOS Runtime / UART DMA 通信基础 | Task/IPC/资源所有权，以及 UART + DMA + IDLE + RingBuffer |
@@ -94,6 +97,10 @@ S12 系统集成 / Reliability / Delivery
 ```
 
 具体的诊断工具移植恢复脚本、patch 或检查规则，等该阶段正式实施时再根据对照实验结果确定。
+
+### S01A 本机工具 Skill 接入与入口整理
+
+作为 S01 与 S02 之间的短支撑阶段，保存本工程可复用的项目配置示例、首次初始化脚本和常用 Skill 调用速查。Keil、J-Link、GDB 等操作继续由已安装的 Skills 提供；本阶段不复制 Skill 脚本或工具程序，不执行板级操作，也不改变后续 S02–S12 的编号和阶段边界。
 
 ### S02 板级基础能力 / Platform Bring-up
 
@@ -290,7 +297,7 @@ Confirm / Rollback
 
 ```text
 ① 工程基础设施
-S00 ~ S01
+S00 ~ S01A
 
         ↓
 
