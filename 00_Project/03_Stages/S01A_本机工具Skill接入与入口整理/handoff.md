@@ -7,7 +7,7 @@
 - Date: 2026-09-27
 - Branch: `main`
 - Design baseline commit: `c27f8af01be6e4910247a42078c7ec255fa15c98`
-- Implementation commit: `PENDING — record after stage commit`
+- Implementation commit: `7a942b57d75e2c1c2c5c0bd2238141b12898cf0a`
 
 ## Delivered scope
 
