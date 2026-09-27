@@ -9,9 +9,12 @@
 - Branch: `main`
 - S01 Implementation Commit: `eabc22ed58e770a80f41dcd94ce427710a658c44`
 - S01A Implementation Commit: `7a942b57d75e2c1c2c5c0bd2238141b12898cf0a`
-- Current Role: `Project Owner / Design`
-- Next Work Item: `S02 板级基础能力 / Platform Bring-up`
-- Next Action: 讨论并冻结 S02 Design / Implementation Plan；在设计完成前不直接扩大功能施工。
+- Active Stage: `S02 板级基础能力 / Platform Bring-up`
+- Active Stage Status: `READY_FOR_IMPLEMENTATION`
+- Current Role: `Project Owner / Implementation Ready`
+- S02 Design Baseline Commit: `0ffe747eeb0a1e7e2c6a088e2b402bbc57965f44`
+- Next Work Item: `执行 S02 Implementation Plan`
+- Next Action: 重新读取当前 HEAD 与 S02 基线差异后，按已批准计划迁入 MCU Platform / STM32F4 Impl 基础资产并完成 F407 底层 Binding；不提前实现 Driver / Service 初始化链。
 
 ## Required Reading
 
@@ -19,21 +22,23 @@
 2. `README.md`
 3. `00_Project/WORKFLOW.md`
 4. `00_Project/05_Status/current_status.md`
-5. `00_Project/03_Stages/S01_Application工程初始化与诊断基础/handoff.md`
-6. `00_Project/03_Stages/S01_Application工程初始化与诊断基础/review.md`
-7. `04_Test/Reports/Stages/S01/verification.md`
-8. `00_Project/02_Roadmap/development_roadmap.md`
-9. `02_Hardware/Pinout/STM32F407VET6_CubeMX_外设与引脚配置基线.md`
-10. `00_Project/04_Decisions/STM32F407VET6_工业控制从机综合项目_设计决策.md`
-11. `03_Firmware/00_Doc/Keil工程与构建输出规范.md`
-12. `03_Firmware/00_Doc/RTT_CmBacktrace_AI移植指南.md`
-13. `03_Firmware/00_Doc/嵌入式C代码规范.md`
-14. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/design.md`
-15. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/implementation_plan.md`
-16. `05_Tools/README.md`
-17. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/handoff.md`
-18. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/review.md`
-19. `04_Test/Reports/Stages/S01A/verification.md`
+5. `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/design.md`
+6. `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/implementation_plan.md`
+7. `00_Project/03_Stages/S01_Application工程初始化与诊断基础/handoff.md`
+8. `00_Project/03_Stages/S01_Application工程初始化与诊断基础/review.md`
+9. `04_Test/Reports/Stages/S01/verification.md`
+10. `00_Project/02_Roadmap/development_roadmap.md`
+11. `02_Hardware/Pinout/STM32F407VET6_CubeMX_外设与引脚配置基线.md`
+12. `00_Project/04_Decisions/STM32F407VET6_工业控制从机综合项目_设计决策.md`
+13. `03_Firmware/00_Doc/Keil工程与构建输出规范.md`
+14. `03_Firmware/00_Doc/RTT_CmBacktrace_AI移植指南.md`
+15. `03_Firmware/00_Doc/嵌入式C代码规范.md`
+16. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/design.md`
+17. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/implementation_plan.md`
+18. `05_Tools/README.md`
+19. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/handoff.md`
+20. `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/review.md`
+21. `04_Test/Reports/Stages/S01A/verification.md`
 
 外部复用资产：
 
@@ -88,6 +93,36 @@ S01 Code Verification 与阶段要求内的工具链/板级验证均为 `PASS`�
 - Fault 路径保持最小依赖，关键故障输出不依赖 EasyLogger 正常链。
 - S01 没有提前引入 UART Service、RingBuffer 和设备业务驱动；这些按后续阶段需求复用。
 
+## S02 已冻结设计边界
+
+S02 已完成 Design / Implementation Plan 讨论，当前为 `READY_FOR_IMPLEMENTATION`。
+
+目标链路：
+
+```text
+CubeMX / HAL Resource
+        ↓
+STM32F407 Impl Backend
+        ↓
+Board / HAL Binding
+        ↓
+Platform API
+```
+
+本阶段允许迁入 GPIO、Delay、Software I2C、SPI、UART、IRQ、Reset 及其 STM32F4 Backend；Watchdog 暂缓。
+
+验证边界：
+
+- GPIO：最小物理 Smoke；
+- Software I2C：PB6/PB7 对板载 AT24C02 做地址 ACK Probe，不写 EEPROM；
+- UART：从 USART1/2/3 中选择最方便的一路做 Blocking TX/RX Smoke；
+- SPI：只完成 Binding / Build，W25Q128 JEDEC/Read 留 S03；
+- DMA：不新增 `platform_dma`，UART DMA Runtime 留 S04；
+- FMC：不新增 `platform_fmc`，LCD/FMC 实机时序留 S06；
+- Reset：允许迁入，但不单独安排人工板测。
+
+S02 不建立完整 Driver / Service 初始化链，也不提前引入 W25Q128、DHT20、AT24C02 完整 Driver、UART Service、RingBuffer、LVGL、Modbus 或 OTA。
+
 ## Carry-forward / TO_VERIFY
 
 - HSE 实际晶振频率；
@@ -104,11 +139,11 @@ S01 Code Verification 与阶段要求内的工具链/板级验证均为 `PASS`�
 
 ## 下一步
 
-S01A 本机工具 Skill 接入与入口整理已经关闭。S02 尚未创建正式阶段文档；下一轮应先针对 Board Bring-up 重新审查：
+S02 设计和执行计划已经批准。正式施工前先读取当前仓库 HEAD，并与 Design Baseline `0ffe747eeb0a1e7e2c6a088e2b402bbc57965f44` 对比；若没有影响 S02 的新增变化，则按：
 
-- 哪些 Platform/Impl 资产从 Embedded Engineering Library 直接复用；
-- GPIO / SPI / Software I2C / UART / FMC / IRQ / DMA 中哪些需要在 S02 实机验证；
-- 如何避免与 S03 W25Q128、S04 UART DMA Runtime、S06 Display 等后续阶段重复测试；
-- 本阶段最小人工板测节点和可自动化验证边界。
+- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/design.md`
+- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/implementation_plan.md`
 
-讨论完成后再建立 S02 `design.md`、`implementation_plan.md`，并更新 `current_status.md`。
+执行。
+
+施工重点是 Platform/Impl 迁入、F407 Board/HAL Binding 和最小 GPIO / Software I2C / UART Smoke。完整设备初始化和后续 Service 按 S03+ 阶段逐步补齐。
