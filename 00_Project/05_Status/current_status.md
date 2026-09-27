@@ -3,7 +3,7 @@
 ## 当前状态
 
 - Active Stage: `S02 板级基础能力 / Platform Bring-up`
-- Active Stage Status: `READY_FOR_IMPLEMENTATION`
+- Active Stage Status: `IN_PROGRESS`
 - Last Closed Stage: `S01A 本机工具 Skill 接入与入口整理`
 - Last Closed Stage Status: `CLOSED`
 - Owner: `Project Owner`
@@ -14,8 +14,8 @@
 - S01 Stage Docs: `00_Project/03_Stages/S01_Application工程初始化与诊断基础/`
 - S01A Stage Docs: `00_Project/03_Stages/S01A_本机工具Skill接入与入口整理/`
 - S02 Stage Docs: `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/`
-- Next Work Item: `执行 S02 Implementation Plan`
-- Next Action: 先重新读取当前 HEAD 与 S02 基线差异，再按计划迁入 MCU Platform / STM32F4 Impl 基础资产并完成 F407 底层 Binding；不提前实现 Driver / Service 初始化链。
+- Next Work Item: `S02 独立 Review 与阶段关闭`
+- Next Action: Platform/Impl 资产接入、F407 Binding、Clean Rebuild 与计划要求的 GPIO / I2C ACK / USART1 Smoke 已完成；临时测试代码已移除，等待独立 Review。
 
 ## 已形成的 Application 基线
 
@@ -107,12 +107,4 @@ Platform API
 
 ## 当前执行门
 
-S02 设计与 Implementation Plan 已批准，但代码施工尚未开始，因此状态为 `READY_FOR_IMPLEMENTATION`，不是 `IN_PROGRESS`。
-
-正式执行时：
-
-1. 重新读取仓库当前 HEAD；
-2. 对比 S02 Design Baseline；
-3. 若没有影响本阶段的新增变化，按 Implementation Plan 开始施工；
-4. 实施完成后形成 `verification.md`、`handoff.md`、`review.md`；
-5. 独立 Review PASS 后再关闭 S02 并切换到 S03。
+S02 已按批准的 Implementation Plan 完成实施与计划内验证，当前仍为 `IN_PROGRESS`，等待独立 Review。`verification.md` 和 `handoff.md` 已形成，Review PASS 后再关闭 S02 并切换至路线图中的 S03 W25Q128 与中文字库基础。

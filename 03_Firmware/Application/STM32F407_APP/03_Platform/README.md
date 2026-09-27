@@ -1,3 +1,3 @@
 # 03_Platform 平台抽象层
 
-本层包含平台公共能力和 OS 抽象接口。平台接口保持实现无关，具体目标适配放在 `04_Impl/`。
+本层包含平台公共能力和 OS 抽象接口。`platform_mcu/` 提供本阶段迁入的 GPIO、Software I2C、SPI、UART、IRQ 和 Reset 接口；平台接口保持实现无关，具体目标适配放在 `04_Impl/`。

@@ -10,11 +10,11 @@
 - S01 Implementation Commit: `eabc22ed58e770a80f41dcd94ce427710a658c44`
 - S01A Implementation Commit: `7a942b57d75e2c1c2c5c0bd2238141b12898cf0a`
 - Active Stage: `S02 板级基础能力 / Platform Bring-up`
-- Active Stage Status: `READY_FOR_IMPLEMENTATION`
-- Current Role: `Project Owner / Implementation Ready`
+- Active Stage Status: `IN_PROGRESS`
+- Current Role: `Verification / Independent Review`
 - S02 Design Baseline Commit: `0ffe747eeb0a1e7e2c6a088e2b402bbc57965f44`
-- Next Work Item: `执行 S02 Implementation Plan`
-- Next Action: 重新读取当前 HEAD 与 S02 基线差异后，按已批准计划迁入 MCU Platform / STM32F4 Impl 基础资产并完成 F407 底层 Binding；不提前实现 Driver / Service 初始化链。
+- Next Work Item: `S02 独立 Review 与阶段关闭`
+- Next Action: 计划内代码、Clean Rebuild 和 GPIO / I2C ACK / USART1 Smoke 已完成；测试入口已清除，等待 Review PASS 后关闭 S02 并切换到 S03。
 
 ## Required Reading
 
@@ -95,7 +95,7 @@ S01 Code Verification 与阶段要求内的工具链/板级验证均为 `PASS`�
 
 ## S02 已冻结设计边界
 
-S02 已完成 Design / Implementation Plan 讨论，当前为 `READY_FOR_IMPLEMENTATION`。
+S02 Design / Implementation Plan 已批准；Platform / Impl 接入、F407 Binding 与计划内验证已完成，当前等待 Review。
 
 目标链路：
 
@@ -139,11 +139,10 @@ S02 不建立完整 Driver / Service 初始化链，也不提前引入 W25Q128�
 
 ## 下一步
 
-S02 设计和执行计划已经批准。正式施工前先读取当前仓库 HEAD，并与 Design Baseline `0ffe747eeb0a1e7e2c6a088e2b402bbc57965f44` 对比；若没有影响 S02 的新增变化，则按：
+S02 代码和计划内验证已完成，具体证据见：
 
-- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/design.md`
-- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/implementation_plan.md`
+- `04_Test/Reports/Stages/S02/verification.md`
+- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/handoff.md`
+- `00_Project/03_Stages/S02_板级基础能力与Platform_Bring-up/review.md`（Review 后建立）
 
-执行。
-
-施工重点是 Platform/Impl 迁入、F407 Board/HAL Binding 和最小 GPIO / Software I2C / UART Smoke。完整设备初始化和后续 Service 按 S03+ 阶段逐步补齐。
+当前待办是独立 Review。Review PASS 后关闭 S02，下一工作项切换为 `S03 W25Q128 与中文字库基础`；完整设备初始化和 Service 仍按后续阶段设计。

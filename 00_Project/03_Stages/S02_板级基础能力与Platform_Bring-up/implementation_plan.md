@@ -3,7 +3,7 @@
 ## Metadata
 
 - Stage: `S02 板级基础能力 / Platform Bring-up`
-- Status: `READY_FOR_IMPLEMENTATION`
+- Status: `IN_PROGRESS`
 - Design Commit: 本阶段设计文档与计划同批建立
 - Baseline Commit: `0ffe747eeb0a1e7e2c6a088e2b402bbc57965f44`
 - Reuse Baseline: `wangyaoqianw-max/Embedded_Engineering_Library@8ae16732fb3be01e4fed0c5d8cdae78c1ad46cd0`

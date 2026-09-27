@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,CMB_USER_CFG</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../00_Config;../00_Config/diagnostics;../01_APP;../02_Service;../02_Service/log;../03_Platform/platform_common;../03_Platform/platform_os;../03_Platform/platform_log;../04_Impl/diagnostics;../04_Impl/diagnostics/easylogger;../04_Impl/impl_board;../04_Impl/impl_os/freertos;../05_Vendors/CmBacktrace;../05_Vendors/CmBacktrace/Languages/en-US;../05_Vendors/EasyLogger/inc;../05_Vendors/SEGGER_RTT</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../00_Config;../00_Config/diagnostics;../01_APP;../02_Service;../02_Service/log;../03_Platform/platform_common;../03_Platform/platform_os;../03_Platform/platform_log;../03_Platform/platform_mcu/gpio;../03_Platform/platform_mcu/i2c;../03_Platform/platform_mcu/spi;../03_Platform/platform_mcu/uart;../03_Platform/platform_mcu/irq;../03_Platform/platform_mcu/reset;../04_Impl/diagnostics;../04_Impl/diagnostics/easylogger;../04_Impl/impl_board;../04_Impl/impl_mcu/stm32f4;../04_Impl/impl_os/freertos;../05_Vendors/CmBacktrace;../05_Vendors/CmBacktrace/Languages/en-US;../05_Vendors/EasyLogger/inc;../05_Vendors/SEGGER_RTT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -983,6 +983,136 @@
               <FileName>board_types.h</FileName>
               <FileType>5</FileType>
               <FilePath>../04_Impl/impl_board/board_types.h</FilePath>
+            </File>
+            <File>
+              <FileName>board_platform_bindings.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_board/board_platform_bindings.c</FilePath>
+            </File>
+            <File>
+              <FileName>board_platform_bindings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../04_Impl/impl_board/board_platform_bindings.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/Platform/platform_mcu</GroupName>
+          <Files>
+            <File>
+              <FileName>platform_gpio_types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/gpio/platform_gpio_types.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../03_Platform/platform_mcu/gpio/platform_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/gpio/platform_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../03_Platform/platform_mcu/i2c/platform_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_i2c.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/i2c/platform_i2c.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_spi_types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/spi/platform_spi_types.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../03_Platform/platform_mcu/spi/platform_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/spi/platform_spi.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_uart_types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/uart/platform_uart_types.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../03_Platform/platform_mcu/uart/platform_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/uart/platform_uart.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_mcu_irq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/irq/platform_mcu_irq.h</FilePath>
+            </File>
+            <File>
+              <FileName>platform_mcu_reset.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../03_Platform/platform_mcu/reset/platform_mcu_reset.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/Impl/impl_mcu/stm32f4</GroupName>
+          <Files>
+            <File>
+              <FileName>impl_platform_delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_mcu_irq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_mcu_irq.c</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_mcu_reset.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_mcu_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_spi.h</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>impl_platform_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../04_Impl/impl_mcu/stm32f4/impl_platform_uart.h</FilePath>
             </File>
           </Files>
         </Group>

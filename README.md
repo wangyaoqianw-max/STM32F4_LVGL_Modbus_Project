@@ -6,7 +6,7 @@
 - MCU：STM32F407VET6 新开发板。
 - 项目架构、硬件事实、复用边界和分阶段路线以[工程设计决策](00_Project/04_Decisions/STM32F407VET6_工业控制从机综合项目_设计决策.md)为当前基线。
 - S00 工程准备和 S01 Application 工程初始化与诊断基础已经完成。
-- S01A 本机工具 Skill 接入与入口整理已经关闭；S02 板级基础能力 / Platform Bring-up 的 Design / Implementation Plan 已冻结，当前状态为 `READY_FOR_IMPLEMENTATION`。
+- S01A 本机工具 Skill 接入与入口整理已经关闭；S02 板级基础能力 / Platform Bring-up 正在按已批准的 Design / Implementation Plan 施工。
 
 ## 快速恢复上下文
 
