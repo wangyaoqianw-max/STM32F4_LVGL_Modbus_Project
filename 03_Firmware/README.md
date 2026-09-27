@@ -2,9 +2,11 @@
 
 `03_Firmware` 是固件实现区。
 
-当前 Application 母工程已经建立，活动工作项为：
+当前状态：
 
-`S01 Application 工程初始化与诊断基础`
+- STM32F407VET6 Application 母工程已经建立；
+- `S01 Application 工程初始化与诊断基础` 已 Review PASS 并关闭；
+- 下一步进入 S02 板级基础能力 / Platform Bring-up 的设计讨论。
 
 目录职责：
 
@@ -25,7 +27,7 @@
 
 `03_Firmware/Application/STM32F407_APP/`
 
-S01 将在不移动 CubeMX 生成目录的前提下建立：
+已建立：
 
 ```text
 00_Config/
@@ -40,10 +42,24 @@ Middlewares/
 MDK-ARM/
 ```
 
-五层架构与 Diagnostics 优先复用 `Embedded_Engineering_Library` 中已有成熟资产。
+架构保持：
 
-特别约束：Library 的 `platform_types.h` 作为项目基础资源直接使用，不在 S01 修改或重构。
+```text
+APP
+ ↓
+Service
+ ↓
+Platform
+ ↓
+Impl
+ ↓
+HAL / RTOS / Vendor
+```
 
-阶段设计与施工计划见：
+S01 已完成 Keil Build/Output 规范、五层基础框架、RTT、EasyLogger、Service Log、CmBacktrace、Fault Adapter 和基础 Build/Flash/Run 工具链验证。
 
-`00_Project/03_Stages/S01_Application工程初始化与诊断基础/`
+`platform_types.h` 是冻结基础资源，按 Embedded Engineering Library S01 基线版本继续使用，不在后续阶段因风格偏好顺手修改。
+
+S01 正式交接：
+
+`00_Project/03_Stages/S01_Application工程初始化与诊断基础/handoff.md`
